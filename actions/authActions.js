@@ -58,6 +58,8 @@ export async function signIn(prevState, formData) {
 
   const isEmail = usernameOrEmail.includes("@");
 
+  await connectDB();
+
   const user = isEmail
     ? await User.findOne({ email: usernameOrEmail })
     : await User.findOne({ username: usernameOrEmail });
