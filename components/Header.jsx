@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { verifyAuth } from "@/lib/auth";
-import { logout } from "@/actions/authActions";
+import { logout, navigate } from "@/actions/authActions";
 
 async function Header() {
   const auth = await verifyAuth();
   return (
-    <header className=" flex items-center justify-center fixed w-full shadow-md">
+    <header className=" flex items-center justify-center shadow-md fixed left-0 top-0 w-full">
       <div className="container mx-auto px-4 py-4 overflow-hidden flex justify-between items-center w-full ">
         <div className="logo">
           <Link href="/">
@@ -20,6 +20,9 @@ async function Header() {
             </li>
             <li>
               <Link href="/protected">Protected</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
             </li>
           </ul>
         </nav>

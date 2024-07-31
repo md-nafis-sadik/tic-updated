@@ -89,3 +89,8 @@ export const logout = async () => {
   await destroySession();
   redirect("/login");
 };
+
+export const navigate = async () => {
+  console.log("Redirecting");
+  redirect("/protected");
+};
