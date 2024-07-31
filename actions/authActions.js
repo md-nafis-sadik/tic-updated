@@ -1,13 +1,12 @@
 "use server";
 import { redirect } from "next/navigation";
-import { User } from "@/lib/models";
-import connectDB from "@/lib/db";
 import { createAuthSession, destroySession } from "@/lib/auth";
 import bcrypt from "bcryptjs";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export const signUp = async (prevState, formData) => {
-  await connectDB();
-
   const username = formData.get("username");
   const name = formData.get("name");
   const email = formData.get("email");
@@ -19,24 +18,39 @@ export const signUp = async (prevState, formData) => {
   if (!password) errors.password = "Password is required";
   if (!email) errors.email = "Email is required";
 
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      username,
+    },
+  });
+
+  const existingUserByEmail = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (existingUser) errors.username = "Username already taken";
+  if (existingUserByEmail) errors.email = "Email already exist";
+
   if (Object.keys(errors).length > 0) {
     return {
       errors,
     };
   }
 
-  const user = new User({
+  const userData = {
     username,
     name,
     email,
     password,
-  });
+  };
 
   try {
     const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-    await user.save();
-    await createAuthSession(user._id);
+    userData.password = await bcrypt.hash(password, salt);
+    const user = await prisma.user.create({ data: userData });
+    await createAuthSession(user.id);
     redirect("/");
   } catch (err) {
     throw err;
@@ -58,11 +72,9 @@ export async function signIn(prevState, formData) {
 
   const isEmail = usernameOrEmail.includes("@");
 
-  await connectDB();
-
   const user = isEmail
-    ? await User.findOne({ email: usernameOrEmail })
-    : await User.findOne({ username: usernameOrEmail });
+    ? await prisma.user.findUnique({ where: { email: usernameOrEmail } })
+    : await prisma.user.findUnique({ where: { username: usernameOrEmail } });
 
   if (!user) {
     return {
@@ -81,7 +93,7 @@ export async function signIn(prevState, formData) {
     };
   }
 
-  await createAuthSession(user._id);
+  await createAuthSession(user.id);
   redirect("/protected");
 }
 
