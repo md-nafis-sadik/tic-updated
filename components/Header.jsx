@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { verifyAuth } from "@/lib/auth";
-import { logout, navigate } from "@/actions/authActions";
+import { logout } from "@/actions/authActions";
 
 async function Header() {
   const auth = await verifyAuth();

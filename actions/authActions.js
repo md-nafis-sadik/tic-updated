@@ -1,6 +1,6 @@
 "use server";
 import { redirect } from "next/navigation";
-import { createAuthSession, destroySession } from "@/lib/auth";
+import { createAuthSession, destroySession, verifyAuth } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 
@@ -94,15 +94,10 @@ export async function signIn(prevState, formData) {
   }
 
   await createAuthSession(user.id);
-  redirect("/protected");
+  redirect("../dashboard");
 }
 
 export const logout = async () => {
   await destroySession();
-  redirect("/login");
-};
-
-export const navigate = async () => {
-  console.log("Redirecting");
-  redirect("/protected");
+  redirect("../login");
 };
