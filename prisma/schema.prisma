@@ -22,3 +22,24 @@ model Session {
   expiresAt DateTime
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model MenuItem {
+  id       Int        @id @default(autoincrement())
+  name     String
+  url      String?
+  priority Int?
+  parentId Int?       @default(0)
+  parent   MenuItem?  @relation("SubMenuItems", fields: [parentId], references: [id])
+  children MenuItem[] @relation("SubMenuItems")
+}
+
+model PortfolioCategory {
+  id            Int                 @id @default(autoincrement())
+  name          String
+  imgUrl        String?
+  slug          String              @unique
+  priority      Int?
+  parentId      Int?
+  parent        PortfolioCategory?  @relation("subCategories", fields: [parentId], references: [id])
+  subcategories PortfolioCategory[] @relation("subCategories")
+}

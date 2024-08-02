@@ -1,9 +1,16 @@
 "use client";
-import { useRef, useState } from "react";
+import dynamic from "next/dynamic";
+import { useRef, useMemo } from "react";
 import "quill/dist/quill.snow.css";
 import Editor from "./QuillEditor";
+
 function BlogForm() {
+  // const Editor = dynamic(() => import("./QuillEditor"), { ssr: false });
   const quillRef = useRef();
+
+  // const Editor = useMemo(() => {
+  //   return dynamic(() => import("./QuillEditor"), { ssr: false });
+  // }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
