@@ -1,12 +1,27 @@
 import { Trash2 } from "lucide-react";
 import { deleteCategory } from "@/actions/dataActions";
 import { Fragment } from "react";
+import Image from "next/image";
 
 const renderCategoryItems = (data) => {
   return data.map((category) => (
     <Fragment key={category.id}>
       <tr key={category.id}>
-        <th>{category.id}</th>
+        <td>{category.id}</td>
+        <td>
+          {category.imgUrl ? (
+            <td>
+              <Image
+                src={category.imgUrl}
+                alt={category.name}
+                width={80}
+                height={30}
+              />
+            </td>
+          ) : (
+            "N/A"
+          )}
+        </td>
         <td>{category.name}</td>
         <td>{category.parentId ? category.parentId : "N/A"}</td>
         <td>{category.priority ? category.priority : "N/A"}</td>
@@ -31,6 +46,7 @@ function CategoryTable({ data }) {
       <thead>
         <tr>
           <th>ID</th>
+          <th>Image</th>
           <th>Name</th>
           <th>Parent</th>
           <th>Priority</th>

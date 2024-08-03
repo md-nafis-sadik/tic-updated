@@ -1,25 +1,28 @@
+import PageHeader from "@/components/common/PageHeader";
 import Image from "next/image";
-function PortfolioPage() {
+import Link from "next/link";
+import CartegoryCard from "@/components/common/CartegoryCard";
+import { getParentCategories } from "@/utilities/dataService";
+async function PortfolioPage() {
+  const projectCategory = await getParentCategories();
   return (
-    <div className="flex items-start justify-center">
-      <div className="card bg-base-100  shadow-xl">
-        <figure className=" pt-10">
-          <Image
-            src="/images/01.jpg"
-            alt="Shoes"
-            className="rounded-xl"
-            width={400}
-            height={200}
-          />
-        </figure>
-        <div className="card-body items-center text-center">
-          <h2 className="card-title">Shoes!</h2>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+    <>
+      <PageHeader title="Portfolio" />
+      <main className="bg-gray-100 py-16">
+        <section className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
+            {projectCategory.map((category) => (
+              <CartegoryCard
+                key={category.id}
+                title={category.name}
+                img={category.imgUrl}
+                link={category.slug}
+              />
+            ))}
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+      </main>
+    </>
   );
 }
 

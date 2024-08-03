@@ -99,7 +99,16 @@ function CategoryForm({ data }) {
             Image:
           </label>
 
-          {pickedImage ? (
+          <input
+            type="file"
+            name="image"
+            onChange={handleImageChange}
+            className={`file-input file-input-bordered file-input-sm w-2/3 max-w-xs ${
+              pickedImage && "hidden"
+            }`}
+          />
+
+          {pickedImage && (
             <div className="flex gap-3 items-center">
               <Image
                 src={pickedImage}
@@ -114,13 +123,6 @@ function CategoryForm({ data }) {
                 Remove
               </button>
             </div>
-          ) : (
-            <input
-              type="file"
-              name="image"
-              onChange={handleImageChange}
-              className="file-input file-input-bordered file-input-sm w-2/3 max-w-xs"
-            />
           )}
         </div>
 

@@ -5,11 +5,11 @@ import { logout } from "@/actions/authActions";
 async function Header() {
   const auth = await verifyAuth();
   return (
-    <header className=" flex items-center justify-center shadow-md fixed left-0 top-0 w-full">
+    <header className="bg-white text-gray-700 flex items-center justify-center shadow-md fixed left-0 top-0 w-full z-20">
       <div className="container mx-auto px-4 py-4 overflow-hidden flex justify-between items-center w-full ">
         <div className="logo">
           <Link href="/">
-            <h3 className="text-3xl font-bold">Auth Lucia</h3>
+            <h3 className="text-3xl font-bold">Tic Limited</h3>
           </Link>
         </div>
 
@@ -23,6 +23,9 @@ async function Header() {
             </li>
             <li>
               <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/portfolio">Portfolio</Link>
             </li>
           </ul>
         </nav>

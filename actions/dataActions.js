@@ -1,17 +1,17 @@
 "use server";
 
 import { uploadImage } from "@/lib/cloudnary";
-import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const prisma = new PrismaClient();
+import prisma from "@/lib/prismaClient";
 
 export const addCategory = async (prevState, formData) => {
   const categoryName = formData.get("name");
   const parentCategory = formData.get("parentCategory");
   const priority = formData.get("priority");
   const image = formData.get("image");
+
+  console.log(image);
 
   let errors = {};
 
@@ -29,6 +29,8 @@ export const addCategory = async (prevState, formData) => {
       imageUrl = await uploadImage(image);
       console.log("imageUrl", imageUrl);
     }
+
+    console.log("imageUrl", imageUrl);
 
     const newCategory = await prisma.portfolioCategory.create({
       data: {
@@ -48,9 +50,10 @@ export const addCategory = async (prevState, formData) => {
 
 export const deleteCategory = async (categoryId) => {
   try {
-    const category = await prisma.Project.delete({
+    const category = await prisma.portfolioCategory.delete({
       where: { id: categoryId },
     });
+    redirect("./category");
   } catch (error) {
     throw error;
   }

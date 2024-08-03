@@ -18,18 +18,19 @@ function ProjectTable({ data }) {
       <tbody>
         {data.map((project) => (
           <tr key={project.id}>
-            <th>{project.id}</th>
-            <th>
+            <td>{project.id}</td>
+            <td>
               {project.imageUrl ? (
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
                   width={100}
                   height={70}
-                  className="rounded-full"
                 />
-              ) : null}
-            </th>
+              ) : (
+                "N/A"
+              )}
+            </td>
             <td>{project.title}</td>
             <td>{project.categoryId ? project.categoryId : "N/A"}</td>
 
