@@ -16,3 +16,12 @@ export const getParentCategories = async () => {
     throw error;
   }
 };
+
+export const getProjects = async () => {
+  try {
+    const projects = await prisma.project.findMany();
+    return projects;
+  } catch (error) {
+    throw error;
+  }
+};

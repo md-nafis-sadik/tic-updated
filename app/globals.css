@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.ql-editor {
+  min-height: 100px;
+}

@@ -6,7 +6,7 @@ function FormSubmit({ text }) {
   return (
     <button
       type="submit"
-      className="btn btn-info text-white px-4 py-2 rounded-md mt-5 w-full"
+      className="btn btn-info btn-sm text-white px-4 py-2 rounded-md mt-5"
       disabled={status.pending}
     >
       {text}

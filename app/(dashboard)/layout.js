@@ -11,7 +11,7 @@ export default async function DashboardLayout({ children }) {
   const auth = await verifyAuth();
 
   if (!auth.user) {
-    redirect("../login");
+    redirect("/login");
   }
 
   const user = await getUser(auth.user.id);

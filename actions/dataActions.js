@@ -48,11 +48,61 @@ export const addCategory = async (prevState, formData) => {
 
 export const deleteCategory = async (categoryId) => {
   try {
-    const category = await prisma.portfolioCategory.delete({
+    const category = await prisma.Project.delete({
       where: { id: categoryId },
     });
+  } catch (error) {
+    throw error;
+  }
+};
 
-    redirect("./category");
+export const addProjects = async (prevState, formData) => {
+  const title = formData.get("name");
+  const category = formData.get("category");
+  const image = formData.get("image");
+  const description = formData.get("description");
+
+  let errors = {};
+  if (!title) errors.title = "Title is required";
+
+  if (Object.keys(errors).length > 0) {
+    return {
+      errors,
+    };
+  }
+
+  console.log(formData);
+
+  let imageUrl = null;
+
+  try {
+    if (image && image.size > 0) {
+      imageUrl = await uploadImage(image);
+      console.log("imageUrl", imageUrl);
+    }
+
+    const newProject = await prisma.project.create({
+      data: {
+        title: title,
+        description: description,
+        imageUrl: imageUrl,
+        categoryId: category ? parseInt(category) : null,
+      },
+    });
+    console.log("Project Has been added", newProject);
+    redirect("./");
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const deleteProjects = async (projectId) => {
+  try {
+    const category = await prisma.Project.delete({
+      where: { id: projectId },
+    });
+
+    redirect("./projects");
   } catch (error) {
     throw error;
   }

@@ -21,7 +21,6 @@ const renderCategories = (items, level = 0) => (
 );
 
 function CategoryForm({ data }) {
-  const formRef = useRef(null);
   const [formState, formAction] = useFormState(addCategory, {});
   const [pickedImage, setPickedImage] = useState(null);
 

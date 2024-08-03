@@ -42,4 +42,16 @@ model PortfolioCategory {
   parentId      Int?
   parent        PortfolioCategory?  @relation("subCategories", fields: [parentId], references: [id])
   subcategories PortfolioCategory[] @relation("subCategories")
+  projects       Project[]           @relation("CategoryProjects")
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  imageUrl    String?
+  categoryId  Int?
+  category    PortfolioCategory? @relation("CategoryProjects", fields: [categoryId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  description String?
 }

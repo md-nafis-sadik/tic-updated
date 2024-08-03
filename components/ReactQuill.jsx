@@ -4,8 +4,8 @@ import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 
 const Quill = dynamic(() => import("react-quill"), { ssr: false });
-function ReactQuill() {
-  const [value, setValue] = useState("");
+function ReactQuill({ value, setValue }) {
+  // const [value, setValue] = useState("");
   const modules = {
     toolbar: [
       ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -28,13 +28,7 @@ function ReactQuill() {
     ],
   };
   return (
-    <Quill
-      value={value}
-      onChange={setValue}
-      modules={modules}
-      theme="snow"
-      className="h-36"
-    />
+    <Quill value={value} onChange={setValue} modules={modules} theme="snow" />
   );
 }
 
