@@ -10,14 +10,12 @@ const renderCategoryItems = (data) => {
         <td>{category.id}</td>
         <td>
           {category.imgUrl ? (
-            <td>
-              <Image
-                src={category.imgUrl}
-                alt={category.name}
-                width={80}
-                height={30}
-              />
-            </td>
+            <Image
+              src={category.imgUrl}
+              alt={category.name}
+              width={80}
+              height={30}
+            />
           ) : (
             "N/A"
           )}

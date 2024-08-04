@@ -107,12 +107,20 @@ function ProjectAdd({ data }) {
             />
 
             {pickedImage && (
-              <Image
-                src={pickedImage}
-                alt="Picked Image"
-                width={100}
-                height={80}
-              />
+              <div className="flex gap-8 items-center">
+                <Image
+                  src={pickedImage}
+                  alt="Picked Image"
+                  width={80}
+                  height={50}
+                />
+                <button
+                  className="btn btn-sm"
+                  onClick={() => setPickedImage(null)}
+                >
+                  Change Image
+                </button>
+              </div>
             )}
           </div>
         </div>

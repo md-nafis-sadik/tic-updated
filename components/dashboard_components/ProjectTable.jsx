@@ -24,8 +24,8 @@ function ProjectTable({ data }) {
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
-                  width={100}
-                  height={70}
+                  width={50}
+                  height={30}
                 />
               ) : (
                 "N/A"

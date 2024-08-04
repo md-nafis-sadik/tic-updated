@@ -16,7 +16,7 @@ async function PortfolioPage() {
                 key={category.id}
                 title={category.name}
                 img={category.imgUrl}
-                link={category.slug}
+                link={`/portfolio/${category.slug}`}
               />
             ))}
           </div>

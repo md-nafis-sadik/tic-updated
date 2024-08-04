@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { User, Settings, LogOut, ChevronDown } from "lucide-react";
 import { logout } from "@/actions/authActions";
 
+const FALLBACK_IMAGE = "/images/fallback-image.png";
+
 function DropdownUser({ user }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const trigger = useRef(null);
@@ -50,8 +52,12 @@ function DropdownUser({ user }) {
           </span>
         </span>
 
-        <span className="h-12 w-12 rounded-full overflow-hidden">
-          <Image width={112} height={112} src={"/images/01.jpg"} alt="User" />
+        <span className="h-12 w-12 border-2 rounded-full overflow-hidden relative">
+          <Image
+            fill
+            src={user.image ? user.image : FALLBACK_IMAGE}
+            alt="User"
+          />
         </span>
 
         <ChevronDown />
