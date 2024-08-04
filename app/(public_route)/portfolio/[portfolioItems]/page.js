@@ -6,6 +6,7 @@ async function PortfolioItemPage({ params }) {
   const { portfolioItems } = params;
   const category = await getCategoriesBySlug(portfolioItems);
   const subCategories = category.subcategories;
+  const projects = subCategories[0].projects;
 
   return (
     <>

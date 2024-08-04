@@ -15,17 +15,39 @@ export const getParentCategories = async () => {
   }
 };
 
-export const getCategoriesBySlug = async (slug) => {
+export const getAllCategories = async () => {
   try {
-    const categories = await prisma.portfolioCategory.findUnique({
-      where: { slug: slug },
+    const categories = await prisma.portfolioCategory.findMany({
       include: {
-        subcategories: true,
-        projects: true,
+        subcategories: {
+          include: {
+            projects: true,
+          },
+        },
       },
     });
     return categories;
   } catch (error) {
+    throw error;
+  }
+};
+
+export const getCategoriesBySlug = async (slug) => {
+  try {
+    // Fetch the category by slug and include related projects
+    const category = await prisma.portfolioCategory.findUnique({
+      where: { slug: slug },
+      include: {
+        subcategories: {
+          include: {
+            projects: true,
+          },
+        },
+      },
+    });
+    return category;
+  } catch (error) {
+    console.error("Error fetching category:", error);
     throw error;
   }
 };
