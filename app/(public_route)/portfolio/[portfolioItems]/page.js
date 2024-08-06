@@ -4,15 +4,14 @@ import { getCategoriesBySlug } from "@/utilities/dataService";
 
 async function PortfolioItemPage({ params }) {
   const { portfolioItems } = params;
-  const category = await getCategoriesBySlug(portfolioItems);
-  const subCategories = category.subcategories;
-  const projects = subCategories[0].projects;
+  const categories = await getCategoriesBySlug(portfolioItems);
+  const subCategories = categories.subcategories;
 
   return (
     <>
-      <PageHeader title={category.name} />
-      <main>
-        <section className="container mx-auto py-14 ">
+      <PageHeader title={categories.name} />
+      <main className="bg-white">
+        <section className="container mx-auto ">
           <CategoriesTab data={subCategories} />
         </section>
       </main>

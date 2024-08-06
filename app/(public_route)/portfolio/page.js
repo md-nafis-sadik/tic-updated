@@ -10,7 +10,7 @@ async function PortfolioPage() {
       <PageHeader title="Portfolio" />
       <main className="bg-gray-100 py-16">
         <section className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 p-5">
             {projectCategory.map((category) => (
               <CartegoryCard
                 key={category.id}

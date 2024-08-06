@@ -4,13 +4,10 @@ import Image from "next/image";
 const FALLBACK_IMAGE = "/images/fallback-image.png";
 function CartegoryCard({ title, link, img }) {
   return (
-    <div className="card bg-white relative rounded-md shadow shadow-standart  hover:shadow-lg overflow-hidden">
-      <Image
-        src={img ? img : FALLBACK_IMAGE}
-        width={300}
-        height={200}
-        alt="card image"
-      />
+    <div className="bg-white rounded-md shadow-standard  hover:shadow-lg overflow-hidden">
+      <div className="relative h-60">
+        <Image src={img ? img : FALLBACK_IMAGE} fill alt="card image" />
+      </div>
 
       <div className="p-6">
         <Link

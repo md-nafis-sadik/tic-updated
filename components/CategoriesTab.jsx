@@ -15,14 +15,14 @@ function CategoriesTab({ data }) {
   };
 
   return (
-    <div className="main-tab">
+    <div className="main-tab py-8 px-5">
       <div className="tab-header flex">
         {data.map((item, index) => (
           <button
             key={index}
             role="tab"
             className={`py-2 px-5 shadow-standard rounded-sm ${
-              selectTab === index ? "bg-orange-500 text-white" : ""
+              selectTab === index ? "bg-orange-500 text-white" : "text-gray-700"
             }`}
             onClick={() => handleTabClick(index)}
           >
@@ -32,12 +32,12 @@ function CategoriesTab({ data }) {
       </div>
 
       <div
-        className="tab-content-area w-full border-2 mt-14 bg-white"
+        className="tab-content-area w-full"
         ref={tabContentRef} // Attach the ref to the content area
       >
-        <div className="project-container p-16 grid grid-cols-1 md:grid-cols-3 gap-14">
-          {data.map((item) => (
-            <ProjectCard key={item.id} data={item} />
+        <div className="project-container py-8 grid grid-cols-1 md:grid-cols-4 gap-14">
+          {data[selectTab].projects.map((item, index) => (
+            <ProjectCard key={index} data={item} />
           ))}
         </div>
       </div>

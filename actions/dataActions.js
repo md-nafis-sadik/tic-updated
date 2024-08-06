@@ -110,3 +110,99 @@ export const deleteProjects = async (projectId) => {
     throw error;
   }
 };
+
+export const getMenuItems = async () => {
+  try {
+    const menuItems = await prisma.menuItem.findMany({
+      where: {
+        parentId: null,
+      },
+      include: {
+        children: {
+          include: {
+            children: true,
+          },
+        },
+      },
+    });
+    return menuItems;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const addMenuItem = async (prevState, formData) => {
+  const name = formData.get("name");
+  const url = formData.get("url");
+  const parentMenu = formData.get("parentMenu");
+  const priority = formData.get("priority");
+
+  let errors = {};
+
+  if (!name) errors.name = "Name is required";
+  if (!url) errors.url = "Url is required";
+
+  if (Object.keys(errors).length > 0) {
+    return {
+      errors,
+    };
+  }
+
+  try {
+    const newMenuItem = await prisma.menuItem.create({
+      data: {
+        name: name,
+        url: url,
+        parentId: parentMenu ? parseInt(parentMenu) : null,
+        priority: priority ? parseInt(priority) : null,
+      },
+    });
+
+    redirect("./");
+  } catch (err) {
+    throw err;
+  }
+};
+
+export async function deleteMenuItem(menuItemId) {
+  try {
+    const menuItem = await prisma.menuItem.delete({
+      where: { id: menuItemId },
+    });
+    redirect("./menu");
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const addService = async (prevState, formData) => {
+  const title = formData.get("serviceName");
+  const url = formData.get("serviceUrl");
+  const priority = formData.get("priority");
+  const parentId = formData.get("parentService");
+
+  console.log(formData);
+
+  let errors = {};
+  if (!title) errors.title = "Title is required";
+
+  if (Object.keys(errors).length > 0) {
+    return {
+      errors,
+    };
+  }
+
+  try {
+    const newService = await prisma.service.create({
+      data: {
+        title: title,
+        serviceUrl: url,
+        priority: priority ? parseInt(priority) : null,
+        parentId: parentId ? parseInt(parentId) : null,
+      },
+    });
+    redirect("./");
+  } catch (err) {
+    throw err;
+  }
+};
