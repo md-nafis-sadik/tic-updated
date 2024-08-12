@@ -2,8 +2,22 @@
 import { addService } from "@/actions/dataActions";
 import FormSubmit from "../FormSubmit";
 import { useFormState } from "react-dom";
+import { Fragment } from "react";
 
-function ServiceForm() {
+const renderServices = (items, level = 0) => (
+  <>
+    {items.map((item) => (
+      <Fragment key={item.id}>
+        <option value={item.id} data-url={item.url}>
+          {"-".repeat(level) + " " + item.title}
+        </option>
+        {item.children && renderServices(item.children, level + 1)}
+      </Fragment>
+    ))}
+  </>
+);
+
+function ServiceForm({ data }) {
   const [formState, formAction] = useFormState(addService, {});
   return (
     <form action={formAction} className="grid md:grid-cols-2 gap-8">
@@ -18,19 +32,15 @@ function ServiceForm() {
 
       <div className="flex flex-col gap-3">
         <label htmlFor="priority" className="w-1/3">
-          Priority:
+          Parent Service:
         </label>
         <select
           className="select select-sm select-bordered w-2/3"
           defaultValue=""
-          name="priority"
+          name="parentService"
         >
-          <option value="">Select Priority</option>
-          {Array.from({ length: 10 }, (_, i) => i + 1).map((i) => (
-            <option key={i} value={i}>
-              {i}
-            </option>
-          ))}
+          <option value="">Select Parent</option>
+          {renderServices(data)}
         </select>
       </div>
 
@@ -45,14 +55,14 @@ function ServiceForm() {
 
       <div className="flex flex-col gap-3">
         <label htmlFor="priority" className="w-1/3">
-          Parent Service:
+          Priority:
         </label>
         <select
           className="select select-sm select-bordered w-2/3"
           defaultValue=""
-          name="parentService"
+          name="priority"
         >
-          <option value="">Select Parent</option>
+          <option value="">Select Priority</option>
           {Array.from({ length: 10 }, (_, i) => i + 1).map((i) => (
             <option key={i} value={i}>
               {i}

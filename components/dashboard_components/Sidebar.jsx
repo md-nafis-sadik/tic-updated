@@ -120,7 +120,7 @@ function Sidebar() {
                     <>
                       <Link
                         href="/dashboard"
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           lastSegment === "dashboard" &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
@@ -183,7 +183,7 @@ function Sidebar() {
                             : setSidebarExpanded(true);
                         }}
                       >
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-2">
                           <Settings size={18} />
                           Portfolio
                         </div>
@@ -203,7 +203,7 @@ function Sidebar() {
                               href="/dashboard/portfolio/category"
                               className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname === "/dashboard/portfolio/category" &&
-                                "text-gray-400"
+                                "text-white"
                               }`}
                             >
                               Category
@@ -215,7 +215,7 @@ function Sidebar() {
                               href="/dashboard/portfolio/projects"
                               className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname === "/dashboard/portfolio/projects" &&
-                                "text-gray-400"
+                                "text-white"
                               }`}
                             >
                               Projects
@@ -228,7 +228,7 @@ function Sidebar() {
                               className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname ===
                                   "/dashboard/portfolio/projects/add" &&
-                                "text-gray-400"
+                                "text-white"
                               }`}
                             >
                               Add Projects
@@ -241,7 +241,97 @@ function Sidebar() {
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Portfolio --> */}
+              {/* <!-- Portfolio End --> */}
+
+              {/* Blog Menu Start  */}
+
+              <SidebarLinkGroup
+                activeCondition={pathname === pathname.includes("blog")}
+              >
+                {(handleClick, open) => {
+                  return (
+                    <>
+                      <Link
+                        href="/dashboard/blog"
+                        className={`group relative flex items-center  rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                          pathname.includes("blog") &&
+                          "bg-graydark dark:bg-meta-4"
+                        } justify-between`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Settings size={18} />
+                          Blog
+                        </div>
+
+                        <ChevronDown />
+                      </Link>
+
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && "hidden"
+                        }`}
+                      >
+                        <ul className="mb-5 mt-4 flex flex-col gap-3 pl-6">
+                          <li>
+                            <Link
+                              href="/dashboard/blog"
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
+                                pathname === "/dashboard/blog" && "text-white"
+                              }`}
+                            >
+                              Posts
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/dashboard/blog/add"
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
+                                pathname === "/dashboard/blog/add" &&
+                                "text-white"
+                              }`}
+                            >
+                              Add Post
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/dashboard/blog/categories"
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
+                                pathname === "/dashboard/blog/categories" &&
+                                "text-white"
+                              }`}
+                            >
+                              Categories
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </>
+                  );
+                }}
+              </SidebarLinkGroup>
+
+              {/* Blog Menu End  */}
+
+              <li>
+                <Link
+                  href="/dashboard/team"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("team") && "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <UserCog size={18} />
+                  Team
+                </Link>
+              </li>
 
               {/* <!-- Menu Item Settings --> */}
               <SidebarLinkGroup
