@@ -1,0 +1,191 @@
+{
+  "categories": {
+    "web-development": {
+      "id": 1,
+      "title": "Web Development",
+      "description": "Browse Our Web Design & Development Portfolio to See Our Recent Works!",
+      "imgUrl": "/images/portfolio/website-development.jpg",
+      "subcategories": {
+        "ecommerce": {
+          "id": 1,
+          "title": "E-commerce"
+        },
+        "ngo": {
+          "id": 2,
+          "title": "NGO"
+        },
+        "school": {
+          "id": 3,
+          "title": "School"
+        },
+        "portfolio": {
+          "id": 4,
+          "title": "Portfolio"
+        },
+        "blog": {
+          "id": 5,
+          "title": "Blog"
+        },
+        "landing-pages": {
+          "id": 6,
+          "title": "Landing Pages"
+        },
+        "business": {
+          "id": 7,
+          "title": "Business Websites"
+        },
+        "personal": {
+          "id": 8,
+          "title": "Personal Websites"
+        },
+        "cms": {
+          "id": 9,
+          "title": "CMS Development"
+        },
+        "wordpress": {
+          "id": 10,
+          "title": "WordPress Websites"
+        },
+        "shopify": {
+          "id": 11,
+          "title": "Shopify Stores"
+        },
+
+        "wix": {
+          "id": 13,
+          "title": "Wix Websites"
+        },
+        "react": {
+          "id": 14,
+          "title": "React Websites"
+        },
+        "vue": {
+          "id": 15,
+          "title": "Vue Websites"
+        },
+        "squarespace": {
+          "id": 12,
+          "title": "Squarespace Websites"
+        },
+        "angular": {
+          "id": 16,
+          "title": "Angular Websites"
+        }
+      }
+    },
+    "software-development": {
+      "id": 2,
+      "title": "Software Development",
+      "description": "Browse Our Software Development Portfolio to See Our Recent Works!",
+      "imgUrl": "/images/portfolio/apps.jpg",
+      "subcategories": {
+        "desktop": {
+          "id": 17,
+          "title": "Desktop Applications"
+        },
+        "mobile": {
+          "id": 18,
+          "title": "Mobile Applications"
+        },
+        "web-apps": {
+          "id": 19,
+          "title": "Web Applications"
+        }
+      }
+    },
+    "app-development": {
+      "id": 3,
+      "title": "Apps Development",
+      "description": "Browse Our Apps Development Portfolio to See Our Recent Works!",
+      "imgUrl": "/images/portfolio/software-development.jpg",
+      "subcategories": {
+        "ios": {
+          "id": 20,
+          "title": "iOS Apps"
+        },
+        "android": {
+          "id": 21,
+          "title": "Android Apps"
+        },
+        "cross-platform": {
+          "id": 22,
+          "title": "Cross-platform Apps"
+        }
+      }
+    },
+    "plugin-development": {
+      "id": 4,
+      "title": "Plugins Development",
+      "description": "Browse Our Plugins Development Portfolio to See Our Recent Works!",
+      "imgUrl": "/images/portfolio/software-development.jpg",
+      "subcategories": {}
+    }
+  },
+
+  "projects": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "projectName": "Online Store",
+      "imgUrl": "/images/portfolio/project/ecom1.jpg",
+      "projectUrl": "#",
+      "projectDescription": "***Custom WordPress Website Development***\n\nWe will create a custom WordPress website tailored to your needs.\n\n**Key Features:**\n- WordPress website setup\n- Domain hosting (to be purchased separately)\n- Delivery Time: 3-7 days\n- Theme: GPL licensed\n- Payment Gateways: bKash, Rocket, Bank Transfer (No additional setup cost for multi-vendor)\n\n**Customization Options:**\n- **Logo**\n- **Title**\n- **Menu**\n- **Category**\n- **Contact Info**\n- **Other custom info**\n\n**Notes:**\nPlease review the demo design carefully before placing an order. The final website will closely resemble the demo site. Any additional customization beyond the demo design may require extra payment. Once the site is delivered, any subsequent changes not included in the initial scope will be your responsibility."
+    },
+    {
+      "id": 2,
+      "categoryId": 7,
+      "projectName": "TIC Limited",
+      "imgUrl": "/images/portfolio/project/ticltd.png",
+      "projectUrl": "#"
+    },
+    {
+      "id": 3,
+      "categoryId": 2,
+      "projectName": "NGO 1",
+      "imgUrl": "/images/portfolio/project/ecom2.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 4,
+      "categoryId": 2,
+      "projectName": "NGO 1",
+      "imgUrl": "/images/portfolio/project/ecom2.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 5,
+      "categoryId": 1,
+      "projectName": "Shop 2",
+      "imgUrl": "/images/portfolio/project/ecom3.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 6,
+      "categoryId": 1,
+      "projectName": "Shop 6",
+      "imgUrl": "/images/portfolio/project/ecom3.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 7,
+      "categoryId": 22,
+      "projectName": "Cross Platform",
+      "imgUrl": "/images/portfolio/project/ecom2.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 8,
+      "categoryId": 1,
+      "projectName": "Eco-1",
+      "imgUrl": "/images/portfolio/project/ecom2.jpg",
+      "projectUrl": "#"
+    },
+    {
+      "id": 9,
+      "categoryId": 1,
+      "projectName": "Eco-2",
+      "imgUrl": "/images/portfolio/project/ecom2.jpg",
+      "projectUrl": "#"
+    }
+  ]
+}

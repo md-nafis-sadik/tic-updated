@@ -1,0 +1,129 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Introduction",
+      "slug": "introduction"
+    },
+    {
+      "id": 2,
+      "name": "Tutorials",
+      "slug": "tutorials"
+    },
+    {
+      "id": 3,
+      "name": "Advanced Techniques",
+      "slug": "advanced-techniques"
+    },
+    {
+      "id": 4,
+      "name": "Scalability",
+      "slug": "scalability"
+    },
+    {
+      "id": 5,
+      "name": "Security",
+      "slug": "security"
+    }
+  ],
+  "posts": [
+    {
+      "_id": 1,
+      "title": "Lorem Ipsum",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et consequat enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae .",
+      "author": {
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+      },
+      "tags": ["mongodb", "dummy", "example"],
+      "createdAt": "2024-05-30T08:00:00.000Z",
+      "updatedAt": "2024-05-30T08:00:00.000Z",
+      "categoryId": 1
+    },
+    {
+      "_id": 2,
+      "title": "Introduction to MongoDB",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "This is an introductory guide to MongoDB, covering basic concepts, installation, and getting started with data manipulation.",
+      "author": {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com"
+      },
+      "tags": ["mongodb", "database", "tutorial"],
+      "createdAt": "2024-05-30T09:00:00.000Z",
+      "updatedAt": "2024-05-30T09:00:00.000Z",
+      "categoryId": 2
+    },
+    {
+      "_id": 3,
+      "title": "Advanced MongoDB Queries",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Learn advanced query techniques in MongoDB, including aggregation pipelines, indexing strategies, and optimization tips.",
+      "author": {
+        "name": "Alice Johnson",
+        "email": "alice.johnson@example.com"
+      },
+      "tags": ["mongodb", "database", "queries", "optimization"],
+      "createdAt": "2024-05-30T10:00:00.000Z",
+      "updatedAt": "2024-05-30T10:00:00.000Z",
+      "categoryId": 3
+    },
+    {
+      "_id": 4,
+      "title": "Scaling MongoDB for High Traffic",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Strategies for scaling MongoDB databases to handle high traffic loads, including sharding, replication, and performance tuning.",
+      "author": {
+        "name": "David Brown",
+        "email": "david.brown@example.com"
+      },
+      "tags": ["mongodb", "scaling", "performance"],
+      "createdAt": "2024-05-30T11:00:00.000Z",
+      "updatedAt": "2024-05-30T11:00:00.000Z",
+      "categoryId": 4
+    },
+    {
+      "_id": 5,
+      "title": "MongoDB Security Best Practices",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Best practices for securing MongoDB instances, including authentication, access control, encryption, and auditing.",
+      "author": {
+        "name": "Emily Wilson",
+        "email": "emily.wilson@example.com"
+      },
+      "tags": ["mongodb", "security", "best-practices"],
+      "createdAt": "2024-05-30T12:00:00.000Z",
+      "updatedAt": "2024-05-30T12:00:00.000Z",
+      "categoryId": 5
+    },
+    {
+      "_id": 6,
+      "title": "Optimizing MongoDB Performance",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Techniques and tips for optimizing MongoDB performance, including query optimization, index utilization, and hardware considerations.",
+      "author": {
+        "name": "Michael Anderson",
+        "email": "michael.anderson@example.com"
+      },
+      "tags": ["mongodb", "performance", "optimization"],
+      "createdAt": "2024-05-31T08:00:00.000Z",
+      "updatedAt": "2024-05-31T08:00:00.000Z",
+      "categoryId": 3
+    },
+    {
+      "_id": 7,
+      "title": "MongoDB Schema Design Patterns",
+      "imgUrl": "/images/blog/1.jpg",
+      "content": "Common schema design patterns and considerations for MongoDB, including embedding vs. referencing, denormalization, and data modeling strategies.",
+      "author": {
+        "name": "Sophia Lee",
+        "email": "sophia.lee@example.com"
+      },
+      "tags": ["mongodb", "schema-design", "data-modeling"],
+      "createdAt": "2024-05-31T09:00:00.000Z",
+      "updatedAt": "2024-05-31T09:00:00.000Z",
+      "categoryId": 3
+    }
+  ]
+}
