@@ -1,80 +1,77 @@
 "use client";
 import * as Unicons from "@iconscout/react-unicons";
+import { PencilOff } from "lucide-react";
 import Link from "next/link";
 
 function WhyChooseSection() {
   const team = [
     {
       title: "Grow Your Business",
-      Icon: Unicons.UilAdjustCircle,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
     {
       title: "Drive More Sales",
-      Icon: Unicons.UilCircuit,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
     {
       title: "Handled By Expert",
-      Icon: Unicons.UilFire,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
     {
       title: "Discussion For Idea",
-      Icon: Unicons.UilShoppingBasket,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
     {
       title: "Increase Conversion",
-      Icon: Unicons.UilFlower,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
     {
       title: "Sales Growth Idea",
-      Icon: Unicons.UilFlipH,
+      Icon: PencilOff,
       subtext:
         "The phrasal sequence of the is now so that many campaign and benefit",
     },
   ];
 
   return (
-    <section id="features" className="relative  py-16">
+    <section
+      id="features"
+      className="relative  py-16 bg-transparent bg-gradient-to-b from-white via-orange-50 to-white"
+    >
       <div className="container lg mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 pb-8 items-center">
-          <div>
-            <h6 className="text-orange-600 text-base font-medium uppercase mb-2">
-              What We Do ?
-            </h6>
-
-            <h3 className="text-3xl font-bold">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-sky-500">
-                Perfect Solution
-              </span>
-              <br />
-              For Your Business
-            </h3>
-          </div>
-
-          <div>
-            <p className="text-slate-400 dark:text-slate-300 max-w-xl">
-              TIC IT Ltd. focuses on the exact requirements of the clients. We
-              design and develop the best and most advanced software for all
-              types of businesses.
-            </p>
-          </div>
+        <div className=" px-5  flex flex-col justify-center items-center">
+          <h6 className="text-orange-600 text-base font-medium uppercase mb-2">
+            What We Do ?
+          </h6>
+          <h2 className="text-4xl font-bold ">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-orange-500">
+              Perfect Solution
+            </span>{" "}
+            For Your Business
+          </h2>
+          <p className="max-w-prose mt-6 mb-12 text-lg leading-relaxed text-center">
+            TIC IT Ltd. focuses on the exact requirements of the clients. We
+            design and develop the best and most advanced software for all types
+            of businesses.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 w-5/6 lg:grid-cols-3 md:grid-cols-2 gap-8 mx-auto">
           {team.map((item, key) => {
             const Icon = item.Icon;
             return (
               <div
-                className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10"
+                className="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-lg ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10"
                 key={key}
               >
                 <span className="absolute top-10 z-0 h-20 w-20 rounded-full bg-orange-500 transition-all duration-300 group-hover:scale-[10]"></span>
