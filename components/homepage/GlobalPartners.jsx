@@ -55,12 +55,12 @@ function GlobalPartners() {
           />
         </div>
 
-        <div class="flex flex-wrap justify-center mx-auto  w-5/6">
+        <div className="flex flex-wrap justify-center mx-auto  w-5/6">
           {sponsorList.map((sponsor, index) => (
             <Link
               key={index}
               href="#"
-              class="block w-1/2 py-5 text-center border lg:w-1/4"
+              className="block w-1/2 py-5 text-center border lg:w-1/4"
             >
               <div>
                 <Image

@@ -7,7 +7,7 @@ function Hero() {
       className="py-36 md:h-screen h-auto items-center flex relative bg-hero-bg bg-bottom bg-cover"
       id="home"
     >
-      <div className="absolute inset-0 -z-1 bg-gradient-to-b from-orange-600/50 dark:from-orange-600/40 via-yellow-600/10 dark:via-orange-600/20 to-transparent"></div>
+      <div className="absolute inset-0 -z-1 bg-gradient-to-b from-orange-600/30 dark:from-orange-600/40 via-yellow-600/10 dark:via-orange-600/20 to-transparent"></div>
       <div className="container mx-auto md:px-0 relative">
         <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-14">
           <div className="lg:col-span-7 md:col-span-6 mt-5 md:mt-0 font-balance">
