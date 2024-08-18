@@ -5,8 +5,8 @@ import aboutImg from "@/public/images/about/about.jpg";
 function AboutSection() {
   return (
     <>
-      <section className="relative md:py-24 py-16  overflow-hidden" id="about">
-        <div className="container mx-auto">
+      <section className="relative md:pt-24 py-16  overflow-hidden" id="about">
+        <div className="container mx-auto px-5 md:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-16 items-center">
             <div className="lg:col-span-5">
               <div className="relative">

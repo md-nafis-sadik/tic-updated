@@ -17,31 +17,32 @@ function TechStack() {
   ];
 
   return (
-    <section className="m-8">
-      <div className="container mx-auto flex flex-col items-center justify-center py-8 space-y-8">
+    <section className="text-gray-700 body-font bg-transparent bg-gradient-to-b from-white via-orange-50 to-white">
+      <div className="container mx-auto flex flex-col items-center justify-center py-24 space-y-16">
         <div className=" px-5  flex flex-col justify-center items-center">
           <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-orange-500">
             Technologies we are using
           </h2>
         </div>
 
-        {/* Slider start  */}
-        <div className="p-5 w-full ">
+        {/* slider start  */}
+
+        <div className="p-5 w-full">
           <Swiper
-            spaceBetween={10}
+            spaceBetween={20}
             slidesPerView={6}
             loop={true}
             modules={[Autoplay]}
             autoplay={{
-              delay: 1500,
+              delay: 1000,
             }}
           >
-            {stackList.map((stack, index) => (
+            {stackList.map((sponsor, index) => (
               <SwiperSlide key={index}>
-                <div className="border py-3">
+                <div className="border w-full bg-white flex justify-center">
                   <Image
-                    src={stack.imgUrl}
-                    alt={stack.imgAlt}
+                    src={sponsor.imgUrl}
+                    alt={sponsor.imgAlt}
                     width={200} // Adjust the width as needed
                     height={200} // Adjust the height as needed
                   />
